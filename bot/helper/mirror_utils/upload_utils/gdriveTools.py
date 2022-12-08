@@ -1,3 +1,4 @@
+import sys, errno
 from asyncio import exceptions
 from logging import getLogger, ERROR
 from time import time
@@ -230,6 +231,8 @@ class GoogleDriveHelper:
                 if self.__is_cancelled:
                     return
                 LOGGER.info(f"Uploaded To G-Drive: {file_name}")
+        except IOError as e:  
+            if e.errno == errno.EPIPE: pass
         except Exception as err:
             if isinstance(err, RetryError):
                 LOGGER.info(f"Total Attempts: {err.last_attempt.attempt_number}")
@@ -342,7 +345,7 @@ class GoogleDriveHelper:
                     if config_dict['USE_SERVICE_ACCOUNTS']:
                         self.__switchServiceAccount()
                         LOGGER.info(f"Got: {reason}, Trying Again.")
-                        return self.__upload_file(file_path, file_name, mime_type, dest_id)
+                        return self.__upload_file(file_path, file_name, mime_type, dest_id, user_id)
                     else:
                         LOGGER.error(f"Got: {reason}")
                         raise err
