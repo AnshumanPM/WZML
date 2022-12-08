@@ -17,7 +17,7 @@ from tenacity import retry, wait_exponential, stop_after_attempt, retry_if_excep
 from bot.helper.ext_utils.html_helper import hmtl_content
 from google.auth.transport.requests import Request
 from bot.helper.telegram_helper.button_build import ButtonMaker
-from bot import config_dict, DRIVES_NAMES, DRIVES_IDS, INDEX_URLS, GLOBAL_EXTENSION_FILTER
+from bot import user_data, config_dict, DRIVES_NAMES, DRIVES_IDS, INDEX_URLS, GLOBAL_EXTENSION_FILTER
 from bot.helper.ext_utils.telegraph_helper import telegraph
 from bot.helper.ext_utils.bot_utils import get_readable_file_size, setInterval, change_filename
 from bot.helper.ext_utils.fs_utils import get_mime_type
@@ -276,7 +276,8 @@ class GoogleDriveHelper:
            retry=retry_if_exception_type(Exception))
     def __create_directory(self, directory_name, dest_id, user_id):
         # Change file name
-        _ , directory_name, _ = change_filename(directory_name, user_id, all_edit=False, mirror_type=True)
+        if user_id in user_data and (user_data[user_id].get('mprefix') or user_data[user_id].get('mremname') or user_data[user_id].get('msuffix'))
+            _ , directory_name, _ = change_filename(directory_name, user_id, all_edit=False, mirror_type=True)
         # File body description
         file_metadata = {
             "name": directory_name,
@@ -296,7 +297,8 @@ class GoogleDriveHelper:
            retry=(retry_if_exception_type(Exception)))
     def __upload_file(self, file_path, file_name, mime_type, dest_id, user_id):
         # Change file name
-        _ , file_name, _ = change_filename(file_name, user_id, all_edit=False, mirror_type=True)
+        if user_id in user_data and (user_data[user_id].get('mprefix') or user_data[user_id].get('mremname') or user_data[user_id].get('msuffix'))
+            _ , file_name, _ = change_filename(file_name, user_id, all_edit=False, mirror_type=True)
         # File body description
         file_metadata = {
             'name': file_name,
