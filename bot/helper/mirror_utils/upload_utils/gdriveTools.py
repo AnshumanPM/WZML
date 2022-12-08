@@ -276,7 +276,7 @@ class GoogleDriveHelper:
            retry=retry_if_exception_type(Exception))
     def __create_directory(self, directory_name, dest_id, user_id):
         # Change file name
-        if user_id in user_data and (user_data[user_id].get('mprefix') or user_data[user_id].get('mremname') or user_data[user_id].get('msuffix'))
+        if user_id in user_data and (user_data[user_id].get('mprefix') or user_data[user_id].get('mremname') or user_data[user_id].get('msuffix')):
             _ , directory_name, _ = change_filename(directory_name, user_id, all_edit=False, mirror_type=True)
         # File body description
         file_metadata = {
@@ -297,7 +297,7 @@ class GoogleDriveHelper:
            retry=(retry_if_exception_type(Exception)))
     def __upload_file(self, file_path, file_name, mime_type, dest_id, user_id):
         # Change file name
-        if user_id in user_data and (user_data[user_id].get('mprefix') or user_data[user_id].get('mremname') or user_data[user_id].get('msuffix'))
+        if user_id in user_data and (user_data[user_id].get('mprefix') or user_data[user_id].get('mremname') or user_data[user_id].get('msuffix')):
             _ , file_name, _ = change_filename(file_name, user_id, all_edit=False, mirror_type=True)
         # File body description
         file_metadata = {
