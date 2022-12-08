@@ -1,4 +1,3 @@
-import sys, errno
 from asyncio import exceptions
 from logging import getLogger, ERROR
 from time import time
@@ -231,8 +230,8 @@ class GoogleDriveHelper:
                 if self.__is_cancelled:
                     return
                 LOGGER.info(f"Uploaded To G-Drive: {file_name}")
-        except IOError as e:  
-            if e.errno == errno.EPIPE: pass
+        #except IOError as e:  
+            #if e.errno == errno.EPIPE: pass
         except Exception as err:
             if isinstance(err, RetryError):
                 LOGGER.info(f"Total Attempts: {err.last_attempt.attempt_number}")
@@ -300,8 +299,8 @@ class GoogleDriveHelper:
            retry=(retry_if_exception_type(Exception)))
     def __upload_file(self, file_path, file_name, mime_type, dest_id, user_id):
         # Change file name
-        if user_id in user_data and (user_data[user_id].get('mprefix') or user_data[user_id].get('mremname') or user_data[user_id].get('msuffix')):
-            _ , file_name, _ = change_filename(file_name, user_id, all_edit=False, mirror_type=True)
+        #if user_id in user_data and (user_data[user_id].get('mprefix') or user_data[user_id].get('mremname') or user_data[user_id].get('msuffix')):
+            #_ , file_name, _ = change_filename(file_name, user_id, all_edit=False, mirror_type=True)
         # File body description
         file_metadata = {
             'name': file_name,
