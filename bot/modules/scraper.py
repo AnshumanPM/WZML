@@ -28,8 +28,8 @@ POST_ID_REGEX =  recompile(r'"postId":"(\d+)"')
 
 def scrapper(update, context):
     user_id_ = update.message.from_user.id
-    if config_dict['PAID_SERVICE'] is True:
-        if user_id_ != OWNER_ID and not is_sudo(user_id_) and not is_paid(user_id_):
+    if True:
+        if True:
             sendMessage(f"Buy Paid Service To Use This Scrape Feature.", context.bot, update.message)
             return
     message:Message = update.effective_message
