@@ -30,7 +30,7 @@ def scrapper(update, context):
     user_id_ = update.message.from_user.id
     if config_dict['PAID_SERVICE'] is True:
         if user_id_ != OWNER_ID and not is_sudo(user_id_) and not is_paid(user_id_):
-            sendMessage(f"Buy Paid Service to Use this Scrape Feature.", context.bot, update.message)
+            sendMessage(f"Buy Paid Service To Use This Scrape Feature.", context.bot, update.message)
             return
     message:Message = update.effective_message
     link = None
@@ -46,7 +46,7 @@ def scrapper(update, context):
             help_msg += f"\n<code>/{BotCommands.ScrapeCommand[0]}" + " {message}" + "</code>"
             return sendMessage(help_msg, context.bot, update.message)
     try: link = rematch(r"^(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))", link)[0]
-    except TypeError: return sendMessage('Not a Valid Link.', context.bot, update)
+    except TypeError: return sendMessage('Not A Valid Link.', context.bot, update)
     links = []
     if "sharespark" in link:
         gd_txt = ""
