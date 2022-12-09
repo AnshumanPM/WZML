@@ -16,7 +16,7 @@ from bot.helper.ext_utils.db_handler import DbManger
 from bot.helper.ext_utils.bot_utils import update_user_ldata, is_paid, is_sudo
 
 handler_dict = {}
-example_dict = {'prefix':'1. <code>@your_channel_username or Anything</code>', 'mprefix':'1. <code>@your_channel_username or Anything</code>', 'suffix':'1. <code>~ WZML</code>\n2. <code>~ @channelname</code>', 'msuffix':'1. <code>~ WZML</code>\n2. <code>~ @channelname</code>', 'caption': '1.'+escape("<b>{filename}</b>\nJoin Now : @WeebZone_updates")+'\nCheck all available fillings options <a href="">HERE</a> and Make Custom Caption.', 'userlog':'1. <code>-100xxxxxx or Channel ID</code>', 'remname':'<b>Syntax:</b> previousname:newname:times|previousname:newname:times\n\n1. Fork:Star|Here:Now:1|WZML\n\n<b>Output :</b> Star Now : Click Here.txt', 'mremname':'<b>Syntax:</b> previousname:newname:times|previousname:newname:times\n\n1. Fork:Star|Here:Now:1|WZML\n\n<b>Output :</b> Star Now : Click Here.txt', 'imdb_temp':'Check all available fillings options <a href="">HERE</a> and Make Custom Template.', 'ani_temp':'Check all available fillings options <a href="">HERE</a> and Make Custom AniList Template.', 'yt_ql': f'''1. <code>{escape('bv*[height<=1080][ext=mp4]+ba[ext=m4a]/b[height<=1080]')}</code> this will give 1080p-mp4.\n2. <code>{escape('bv*[height<=720][ext=webm]+ba/b[height<=720]')}</code> this will give 720p-webm.\nCheck all available qualities options <a href="https://github.com/yt-dlp/yt-dlp#filtering-formats">HERE</a>.'''}
+example_dict = {'prefix':'1. <code>@your_channel_username or Anything</code>', 'mprefix':'1. <code>@your_channel_username or Anything</code>', 'suffix':'1. <code>~ AnshumanPM</code>\n2. <code>~ @channelname</code>', 'msuffix':'1. <code>~ AnshumanPM</code>\n2. <code>~ @channelname</code>', 'caption': '1.'+escape("<b>{filename}</b>\nJoin Now : @AnshBotZone")+'\nCheck all available fillings options <a href="">HERE</a> and Make Custom Caption.', 'userlog':'1. <code>-100xxxxxx or Channel ID</code>', 'remname':'<b>Syntax:</b> previousname:newname:times|previousname:newname:times\n\n1. Fork:Star|Here:Now:1|AnshumanPM\n\n<b>Output :</b> Star Now : Click Here.txt', 'mremname':'<b>Syntax:</b> previousname:newname:times|previousname:newname:times\n\n1. Fork:Star|Here:Now:1|AnshumanPM\n\n<b>Output :</b> Star Now : Click Here.txt', 'imdb_temp':'Check all available fillings options <a href="">HERE</a> and Make Custom Template.', 'ani_temp':'Check all available fillings options <a href="">HERE</a> and Make Custom AniList Template.', 'yt_ql': f'''1. <code>{escape('bv*[height<=1080][ext=mp4]+ba[ext=m4a]/b[height<=1080]')}</code> this will give 1080p-mp4.\n2. <code>{escape('bv*[height<=720][ext=webm]+ba/b[height<=720]')}</code> this will give 720p-webm.\nCheck all available qualities options <a href="https://github.com/yt-dlp/yt-dlp#filtering-formats">HERE</a>.'''}
 
 def get_user_settings(from_user, key=None):
     user_id = from_user.id
@@ -411,7 +411,7 @@ def send_users_settings(update, context):
                 mirrorlogs = '\n'.join(f"<b>{bot.get_chat(ll).title}</b> ( <code>{ll}</code> )" for ll in d)
         else:
             continue
-    msg = f'<b><u>Authorized Chats💬 :</u></b>\n{auth_chat}\n<b><u>Sudo Users👤 :</u></b>\n{sudos}\n<b><u>Leech Log:</u></b>\n{leechlogs}\n\n<b><u>Mirror Log♻️ :</u></b>\n{mirrorlogs}\n<b><u>Links Log🔗 :</u></b>\n{linklogs}'
+    msg = f'<b><u>Authorized Chats:</u></b>\n{auth_chat}\n<b><u>Sudo Users:</u></b>\n{sudos}\n<b><u>Leech Log:</u></b>\n{leechlogs}\n\n<b><u>Mirror Log:</u></b>\n{mirrorlogs}\n<b><u>Links Log:</u></b>\n{linklogs}'
     sendMessage(msg, context.bot, update.message)
 
 def sendPaidDetails(update, context):
@@ -427,7 +427,7 @@ def sendPaidDetails(update, context):
         except: 
             continue
     if not paid: paid = 'No Data'
-    sendMessage(f'<b><u>Paid Users🤑 :</u></b>\n\n{paid}', context.bot, update.message)
+    sendMessage(f'<b><u>Paid Users:</u></b>\n\n{paid}', context.bot, update.message)
 
 
 pdetails_handler = CommandHandler(command=BotCommands.PaidUsersCommand, callback=sendPaidDetails,
