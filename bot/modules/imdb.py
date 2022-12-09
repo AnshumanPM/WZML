@@ -32,8 +32,8 @@ def imdb_search(update: Update, context: CallbackContext):
                 return editMessage("<i>No Results Found</i>, Try Again or Use <b>Title ID</b>", k)
             for movie in movies:
                 buttons.sbutton(f"🎬 {movie.get('title')} ({movie.get('year')})", f"imdb {user_id} movie {movie.movieID}")
-        buttons.sbutton("🚫 Close 🚫", f"imdb {user_id} close")
-        editMessage('<b><i>Here What I found on IMDb.com</i></b>', k, buttons.build_menu(1))
+        buttons.sbutton("Close", f"imdb {user_id} close")
+        editMessage('<b><i>Here What I found on IMDb</i></b>', k, buttons.build_menu(1))
     else:
         sendMessage('<i>Send Movie / TV Series Name along with /imdb Command</i>', context.bot, update.message)
 
@@ -173,10 +173,10 @@ def imdb_callback(update, context):
         buttons = ButtonMaker()
         if imdb['trailer']:
             if isinstance(imdb['trailer'], list):
-                buttons.buildbutton("▶️ IMDb Trailer ", str(imdb['trailer'][-1]))
+                buttons.buildbutton("IMDb Trailer ", str(imdb['trailer'][-1]))
                 imdb['trailer'] = list_to_str(imdb['trailer'])
-            else: buttons.buildbutton("▶️ IMDb Trailer ", str(imdb['trailer']))
-        buttons.sbutton("🚫 Close 🚫", f"imdb {user_id} close")
+            else: buttons.buildbutton("IMDb Trailer ", str(imdb['trailer']))
+        buttons.sbutton("Close", f"imdb {user_id} close")
         template = ''
         if int(data[1]) in user_data and user_data[int(data[1])].get('imdb_temp'):
             template = user_data[int(data[1])].get('imdb_temp')
