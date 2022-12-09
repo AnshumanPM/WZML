@@ -772,8 +772,7 @@ def set_priority(id_):
 
 @app.route('/')
 def homepage():
-    return "<h1>See mirror-with-weeb <a href='https://github.com/weebzone/WZML'>@GitHub</a> By <a href='https://github.com/weebzone'>Code With Weeb</a></h1>"
-
+    return "<h1>Bot Running, Made By <a href='https://telegram.me/AnshumanPM_2006'>𝑨𝒏𝒔𝒉𝒖𝒎𝒂𝒏𝑷𝑴 〄</a></h1>"
 @app.errorhandler(Exception)
 def page_not_found(e):
     return f"<h1>404: Torrent not found! Mostly wrong input. <br><br>Error: {e}</h2>", 404
