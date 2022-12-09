@@ -11,7 +11,7 @@ from base64 import b64decode
 
 from telegram import Message
 from telegram.ext import CommandHandler
-from bot import LOGGER, dispatcher, config_dict, OWNER_ID
+from bot import LOGGER, dispatcher
 from bot.helper.telegram_helper.filters import CustomFilters
 from bot.helper.telegram_helper.bot_commands import BotCommands
 from bot.helper.telegram_helper.message_utils import sendMessage, editMessage, deleteMessage
@@ -28,10 +28,6 @@ POST_ID_REGEX =  recompile(r'"postId":"(\d+)"')
 
 def scrapper(update, context):
     user_id_ = update.message.from_user.id
-    if config_dict['PAID_SERVICE'] is True:
-        if user_id_ != OWNER_ID and not is_sudo(user_id_) and not is_paid(user_id_):
-            sendMessage(f"Buy Paid Service To Use This Scrape Feature.", context.bot, update.message)
-            return
     message:Message = update.effective_message
     link = None
     if message.reply_to_message: link = message.reply_to_message.text
