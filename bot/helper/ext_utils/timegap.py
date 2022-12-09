@@ -8,7 +8,7 @@ def timegap_check(message):
     if int(time() - TIME_GAP_STORE[message.from_user.id]) < config_dict['TIME_GAP']:
       wtime = timeformatter((int(TIME_GAP_STORE[message.from_user.id]) + config_dict['TIME_GAP'] - int(time())) * 1000)
       #rtime = timeformatter(config_dict['TIME_GAP'])
-      text = f"Please wait {wtime}. Normal Users have Time Restriction for {config_dict['TIME_GAP']} sec. "
+      text = f"Please Wait {wtime}. Normal Users have Time Restriction For {config_dict['TIME_GAP']} Sec. "
       message.reply_text(
                 text=text,
                 parse_mode="markdown",
