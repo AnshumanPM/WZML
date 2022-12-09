@@ -214,7 +214,7 @@ DEF_IMDB_TEMP  = environ.get('IMDB_TEMPLATE', '')
 if len(DEF_IMDB_TEMP) == 0:
     DEF_IMDB_TEMP = '''<b>Title: </b> {title} [{year}]
 <b>Also Known As:</b> {aka}
-<b>Rating ⭐️:</b> <i>{rating}</i>
+<b>Rating:</b> <i>{rating}</i>
 <b>Release Info: </b> <a href="{url_releaseinfo}">{release_date}</a>
 <b>Genre: </b>{genres}
 <b>IMDb URL:</b> {url}
