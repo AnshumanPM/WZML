@@ -579,7 +579,7 @@ def bot_sys_stats():
         if stats.status() == MirrorStatus.STATUS_SPLITTING:
             num_split += 1
     return f"""
-Made with ❤️ by {config_dict['CREDIT_NAME']}
+Made With ❤️ By {config_dict['CREDIT_NAME']}
 
 Tasks: {tasks}
 
@@ -589,7 +589,7 @@ DISK: {progress_bar(disk)} {disk}%
 
 SENT: {sent} | RECV: {recv}
 
-DLs: {num_active} | ULs: {num_upload} | SEEDING: {num_seeding}
+DLS: {num_active} | ULS: {num_upload} | SEEDS: {num_seeding}
 ZIP: {num_zip} | UNZIP: {num_unzip} | SPLIT: {num_split}
 """
     return stats
