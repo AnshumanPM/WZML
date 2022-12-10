@@ -422,8 +422,7 @@ def main():
                     msg = f"Bot Restarted!\n"
                 msg += f"📅 DATE: {date}\n"
                 msg += f"⌚ TIME: {time}\n"
-                msg += f"🌐 TIMEZONE: {timez}\n"
-                msg += f"🤖 VERSION: {version}"
+                msg += f"🌐 TIMEZONE: {timez}"
 
                 for tag, links in data.items():
                     msg += f"\n{tag}: "
@@ -461,8 +460,7 @@ def main():
             msg = f"Restarted Successfully\n"
             msg += f"📅 DATE: {date}\n"
             msg += f"⌚ TIME: {time}\n"
-            msg += f"🌐 TIMEZONE: {timez}\n"
-            msg += f"🤖 VERSION: {version}"            
+            msg += f"🌐 TIMEZONE: {timez}"
             bot.edit_message_text(msg, chat_id, msg_id)
         except Exception as e:
             LOGGER.info(e)
