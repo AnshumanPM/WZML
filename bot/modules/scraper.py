@@ -11,11 +11,10 @@ from base64 import b64decode
 
 from telegram import Message
 from telegram.ext import CommandHandler
-from bot import LOGGER, dispatcher, config_dict, OWNER_ID
+from bot import LOGGER, dispatcher
 from bot.helper.telegram_helper.filters import CustomFilters
 from bot.helper.telegram_helper.bot_commands import BotCommands
 from bot.helper.telegram_helper.message_utils import sendMessage, editMessage, deleteMessage
-from bot.helper.ext_utils.bot_utils import is_paid, is_sudo
 from bot.helper.mirror_utils.download_utils.direct_link_generator import rock, try2link, ez4, ouo
 from bot.helper.ext_utils.exceptions import DirectDownloadLinkException
 
@@ -27,9 +26,8 @@ DDL_REGEX = recompile(r"DDL\(([^),]+)\, (([^),]+)), (([^),]+)), (([^),]+))\)")
 POST_ID_REGEX =  recompile(r'"postId":"(\d+)"')
 
 def scrapper(update, context):
-    user_id_ = update.message.from_user.id
-    if True:
-        if True:
+    if False:
+        if False:
             sendMessage(f"Buy Paid Service To Use This Scrape Feature.", context.bot, update.message)
             return
     message:Message = update.effective_message
