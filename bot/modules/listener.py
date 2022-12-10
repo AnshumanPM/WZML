@@ -284,7 +284,7 @@ class MirrorLeechListener:
             if config_dict['EMOJI_THEME']:
                 pmwarn = f"<b>😉 I have sent files in PM.</b>\n"
             else:
-                pmwarn = f"<b>I have sent files in PM.</b>\n"
+                pmwarn = ""
         elif self.message.chat.type == 'private':
             pmwarn = ''
         else:
@@ -293,7 +293,7 @@ class MirrorLeechListener:
             if config_dict['EMOJI_THEME']:
                 logwarn = f"<b>⚠️ I have sent files in Mirror Log Channel. Join <a href=\"{config_dict['MIRROR_LOG_URL']}\">Mirror Log channel</a> </b>\n"
             else:
-                logwarn = f"<b>I have sent files in Mirror Log Channel. Join <a href=\"{config_dict['MIRROR_LOG_URL']}\">Mirror Log channel</a> </b>\n"
+                logwarn = ""
         elif self.message.chat.type == 'private':
             logwarn = ''
         else:
@@ -401,7 +401,7 @@ class MirrorLeechListener:
                 msg += f'\n<b>╰👤 #Leech_by: </b>{self.tag}\n\n'
             else: 
                 msg += f'\n<b>├ It Tooks:</b> {get_readable_time(time() - self.message.date.timestamp())}'
-                msg += f'\n<b>╰ #Leech_by: </b>{self.tag}\n\n'
+                msg += f'\n<b>╰ cc: </b>{self.tag}\n\n'
 
 
 
@@ -469,7 +469,7 @@ class MirrorLeechListener:
                 msg += f'\n<b>╰👤 #Mirror_By: </b>{self.tag}\n\n'
             else:
                 msg += f'\n<b>├ It Tooks:</b> {get_readable_time(time() - self.message.date.timestamp())}'
-                msg += f'\n<b>╰ #Mirror_By: </b>{self.tag}\n\n' 
+                msg += f'\n<b>╰ cc: </b>{self.tag}\n\n' 
             buttons = ButtonMaker()
             link = short_url(link)
             if config_dict['DISABLE_DRIVE_LINK'] and self.message.chat.type != 'private':
