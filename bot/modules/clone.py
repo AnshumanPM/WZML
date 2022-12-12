@@ -215,7 +215,7 @@ def _clone(message, bot):
                     if config_dict['EMOJI_THEME']:
                         cc = f'\n<b>╰👤 #Clone_By: </b>{tag}\n\n'
                     else:
-                        cc = f'\n<b>╰ #Clone_By: </b>{tag}\n\n'
+                        cc = f'\n<b>╰ cc: </b>{tag}\n\n'
                     if PICS:
                         sendPhoto(result + cc, bot, message, rchoice(PICS), button)
                     else:
@@ -259,7 +259,7 @@ def _clone(message, bot):
                             if config_dict['EMOJI_THEME']:
                                 cc = f'\n<b>╰👤 #Clone_By: </b>{tag}\n\n'
                             else:
-                                cc = f'\n<b>╰ #Clone_By: </b>{tag}\n\n'
+                                cc = f'\n<b>╰ cc: </b>{tag}\n\n'
                             if PICS:
                                 sendPhoto(result + cc, bot, message, rchoice(PICS), button)
                             else:
@@ -309,7 +309,7 @@ def _clone(message, bot):
         if config_dict['EMOJI_THEME']:
             cc = f'\n<b>╰👤 #Clone_By: </b>{tag}\n\n'
         else:
-            cc = f'\n<b>╰ #Clone_By: </b>{tag}\n\n'
+            cc = f'\n<b>╰ cc: </b>{tag}\n\n'
         if button in ["cancelled", ""]:
             sendMessage(f"{tag} {result}", bot, message)
         else:
