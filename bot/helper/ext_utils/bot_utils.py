@@ -66,7 +66,7 @@ class EngineStatus:
     STATUS_ZIP = "p7zip"
 
     
-SIZE_UNITS = ['B', 'KB', 'MB', 'TB', 'GB', 'PB']
+SIZE_UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
 
 class setInterval:
     def __init__(self, interval, action):
