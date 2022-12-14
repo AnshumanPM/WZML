@@ -302,7 +302,7 @@ class MirrorLeechListener:
             if config_dict['EMOJI_THEME']:
                 logleechwarn = f"<b>⚠️ I have sent files in Leech Log Channel. Join <a href=\"{config_dict['LEECH_LOG_URL']}\">Leech Log channel</a> </b>\n"
             else:
-                logleechwarn = f"<b>I have sent files in Leech Log Channel. Join <a href=\"{config_dict['LEECH_LOG_URL']}\">Leech Log channel</a> </b>\n"
+                logleechwarn = ""
         elif self.message.chat.type == 'private':
             logleechwarn = ''
         else:
