@@ -350,6 +350,7 @@ if config_dict['SET_BOT_COMMANDS']:
         (f'{BotCommands.UserSetCommand[0]}','Users Settings'),
         (f'{BotCommands.BotSetCommand[0]}','BOT Settings'),
         (f'{BotCommands.StatusCommand}','Get Mirror Status Message'),
+        (f'{BotCommands.StatsCommand}','Get System Status'),
         (f'{BotCommands.SpeedCommand[0]}','Speedtest'),
         (f'{BotCommands.PingCommand}','Ping The Bot'),
         (f'{BotCommands.RestartCommand}','Restart The Bot'),
