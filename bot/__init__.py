@@ -432,7 +432,7 @@ FORCE_BOT_PM = FORCE_BOT_PM.lower() == 'true'
 SOURCE_LINK = environ.get('SOURCE_LINK', '')
 SOURCE_LINK = SOURCE_LINK.lower() == 'true'
 
-FSUB = environ.get('FSUB', 'True')
+FSUB = environ.get('FSUB', '')
 FSUB = FSUB.lower() == 'true'
 
 PAID_SERVICE = environ.get('PAID_SERVICE', '')
