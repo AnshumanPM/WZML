@@ -573,11 +573,11 @@ if len(MULTI_WORKING_PROGRESS_STR) != 7:
 
 CHANNEL_USERNAME = environ.get('CHANNEL_USERNAME', '')
 if len(CHANNEL_USERNAME) == 0:
-    CHANNEL_USERNAME = 'Use_Full_Bots'
+    CHANNEL_USERNAME = 'AnshBotZone'
 
 FSUB_CHANNEL_ID = environ.get('FSUB_CHANNEL_ID', '')
 if len(FSUB_CHANNEL_ID) == 0:
-    FSUB_CHANNEL_ID = '-1001845495788'
+    FSUB_CHANNEL_ID = '-1001705731193'
 
 IMAGE_URL = environ.get('IMAGE_URL', '')
 if len(IMAGE_URL) == 0:
