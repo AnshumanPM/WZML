@@ -11,10 +11,11 @@ from base64 import b64decode
 
 from telegram import Message
 from telegram.ext import CommandHandler
-from bot import LOGGER, dispatcher
+from bot import LOGGER, dispatcher, config_dict, OWNER_ID
 from bot.helper.telegram_helper.filters import CustomFilters
 from bot.helper.telegram_helper.bot_commands import BotCommands
 from bot.helper.telegram_helper.message_utils import sendMessage, editMessage, deleteMessage
+from bot.helper.ext_utils.bot_utils import is_paid, is_sudo
 from bot.helper.mirror_utils.download_utils.direct_link_generator import rock, try2link, ez4, ouo
 from bot.helper.ext_utils.exceptions import DirectDownloadLinkException
 
@@ -26,9 +27,10 @@ DDL_REGEX = recompile(r"DDL\(([^),]+)\, (([^),]+)), (([^),]+)), (([^),]+))\)")
 POST_ID_REGEX =  recompile(r'"postId":"(\d+)"')
 
 def scrapper(update, context):
-    if False:
-        if False:
-            sendMessage(f"Buy Paid Service To Use This Scrape Feature.", context.bot, update.message)
+    user_id_ = update.message.from_user.id
+    if config_dict['PAID_SERVICE'] is True:
+        if user_id_ != OWNER_ID and not is_sudo(user_id_) and not is_paid(user_id_):
+            sendMessage(f"Buy Paid Service to Use this Scrape Feature.", context.bot, update.message)
             return
     message:Message = update.effective_message
     link = None
@@ -44,7 +46,7 @@ def scrapper(update, context):
             help_msg += f"\n<code>/{BotCommands.ScrapeCommand[0]}" + " {message}" + "</code>"
             return sendMessage(help_msg, context.bot, update.message)
     try: link = rematch(r"^(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))", link)[0]
-    except TypeError: return sendMessage('Not A Valid Link.', context.bot, update)
+    except TypeError: return sendMessage('Not a Valid Link.', context.bot, update)
     links = []
     if "sharespark" in link:
         gd_txt = ""
