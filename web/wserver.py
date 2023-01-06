@@ -18,15 +18,6 @@ basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
 
 LOGGER = getLogger(__name__)
 
-about = """
-<h1>About This Bot</h1>
-<h3>Bot Username:- <a href="https://telegram.me/AnshumanLeechBot">Anshuman Leech Bot</a></h3>
-<h3>Owner:- <a href="https://telegram.me/AnshumanPM_2006">Anshuman</a></h3>
-<h3>Framework:- <a href="https://python.org">Python 3</a></h3>
-<h3>Library:- <a href="https://pyrogram.org">Pyrogram</a></h3>
-<h3>Deployed On:- <a href="https://dashboard.render.com">Render</a></h3>
-"""
-
 page = """
 <html lang="en">
   <head>
@@ -776,7 +767,14 @@ def set_priority(id_):
 
 @app.route('/about')
 def about():
-    return about
+    return """
+<h1>About This Bot</h1>
+<h3>Bot Username:- <a href="https://telegram.me/AnshumanLeechBot">Anshuman Leech Bot</a></h3>
+<h3>Owner:- <a href="https://telegram.me/AnshumanPM_2006">Anshuman</a></h3>
+<h3>Framework:- <a href="https://python.org">Python 3</a></h3>
+<h3>Library:- <a href="https://pyrogram.org">Pyrogram</a></h3>
+<h3>Deployed On:- <a href="https://dashboard.render.com">Render</a></h3>
+"""
 
 @app.route('/')
 def homepage():
