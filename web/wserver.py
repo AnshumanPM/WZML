@@ -762,6 +762,17 @@ def set_priority(id_):
             LOGGER.info(f"Verification Failed! Report! Gid: {id_}")
     return list_torrent_contents(id_)
 
+@app.route('/about')
+def about():
+    return """
+<h1>About This Bot</h1>
+<h3>Bot Username:- <a href="https://telegram.me/AnshumanLeechBot">Anshuman Leech Bot</a></h3>
+<h3>Owner:- <a href="https://telegram.me/AnshumanPM_2006">𝑨𝒏𝒔𝒉𝒖𝒎𝒂𝒏𝑷𝑴 〄</a></h3>
+<h3>Framework:- <a href="https://python.org">Python 3</a></h3>
+<h3>Library:- <a href="https://pyrogram.org">Pyrogram</a></h3>
+<h3>Deployed On:- <a href="https://dashboard.render.com">Render</a></h3>
+"""
+
 @app.route('/')
 def homepage():
     return "<h1>Bot Running, Made By <a href='https://telegram.me/AnshumanPM_2006'>𝑨𝒏𝒔𝒉𝒖𝒎𝒂𝒏𝑷𝑴 〄</a></h1>"
